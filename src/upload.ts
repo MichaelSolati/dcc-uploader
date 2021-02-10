@@ -6,7 +6,7 @@ const mime = require('mime-types');
 
 export interface Upload {
   date: number;
-  domain: 'developer.chrome.com';
+  domain: 'developer.chrome.com' | 'web.dev';
   extension: string;
   height?: number;
   name: string;
@@ -49,7 +49,7 @@ export const uploadFile = (imgPath: string): Promise<Upload> => {
 
   const upload: Upload = {
     date: new Date().getTime(),
-    domain: 'developer.chrome.com',
+    domain: 'web.dev',
     extension: path.extname(imgPath).replace(/^\./, ''),
     height,
     name: path.basename(imgPath),
